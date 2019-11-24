@@ -5,7 +5,7 @@
 // Package derefer contains helper routines for simplifying the getting of
 // optional fields of basic type. This allows you to get the value from the
 // pointer even if it is nil, because in this case the zero value of the
-// specified type will be obtained.
+// specified type will be received.
 package derefer
 
 import (
