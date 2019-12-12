@@ -55,6 +55,6 @@ Released under the [BSD 3-Clause License][LIC].
 [EXD]: https://godoc.org/github.com/xorcare/derefer#pkg-examples 'Examples of using package derefer'
 [EXS]: https://github.com/xorcare/derefer/blob/master/example_test.go 'Examples source file'
 [TCI]: https://travis-ci.org/xorcare/derefer 'Travis CI is a hosted continuous integration service used to build and test software projects hosted at GitHub'
-[COV]: https://codecov.io/gh/xorcare/derefer/branch/master/graph/badge.svg 'Codecov is a code coverage tool, which is available for GitHub, Bitbucket and GitLab'
+[COV]: https://codecov.io/gh/xorcare/derefer/branch/master 'Codecov is a code coverage tool, which is available for GitHub, Bitbucket and GitLab'
 [GRC]: https://goreportcard.com/report/github.com/xorcare/derefer 'A web application that generates a report on the quality of an open source go project'
 [DOC]: https://godoc.org/github.com/xorcare/derefer 'GoDoc hosts documentation for Go packages on Bitbucket, GitHub, Google Project Hosting and Launchpad'
