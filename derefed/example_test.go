@@ -2,6 +2,7 @@ package derefed_test
 
 import (
 	. "fmt"
+	"time"
 
 	"github.com/xorcare/derefer/derefed"
 )
@@ -25,6 +26,7 @@ var _uint16 = uint16(16)
 var _uint32 = uint32(32)
 var _uint64 = uint64(94)
 var _uintptr = uintptr(64)
+var _time = time.Time{}.AddDate(2077, 1, 1)
 
 func ExampleBool() {
 	value := derefed.Bool(nil, true)
@@ -328,4 +330,20 @@ func ExampleUintptr() {
 	// dereference with default value a nil pointer : (uintptr)	"47"
 	// dereference with default value new zero value: (uintptr)	"0"
 	// dereference with default value variable value: (uintptr)	"64"
+}
+
+func ExampleTime() {
+	value := derefed.Time(nil, _time)
+	Printf("dereference with default value a nil pointer : (%T)\t%q\n", value, Sprint(value))
+
+	value = derefed.Time(new(time.Time), _time)
+	Printf("dereference with default value new zero value: (%T)\t%q\n", value, Sprint(value))
+
+	value = derefed.Time(&_time, time.Time{})
+	Printf("dereference with default value variable value: (%T)\t%q\n", value, Sprint(value))
+
+	// Output:
+	// dereference with default value a nil pointer : (time.Time)	"2078-02-02 00:00:00 +0000 UTC"
+	// dereference with default value new zero value: (time.Time)	"0001-01-01 00:00:00 +0000 UTC"
+	// dereference with default value variable value: (time.Time)	"2078-02-02 00:00:00 +0000 UTC"
 }

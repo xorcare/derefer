@@ -8,6 +8,10 @@
 // second parameter.
 package derefed
 
+import (
+	"time"
+)
+
 // Bool dereference a pointer bool from the structure of a literal or
 // variable, and if the pointer is nil it returns a value of second parameter.
 func Bool(v *bool, def bool) bool {
@@ -119,6 +123,15 @@ func Rune(v *rune, def rune) rune {
 // String dereference a pointer string from the structure of a literal or
 // variable, and if the pointer is nil it returns a value of second parameter.
 func String(v *string, def string) string {
+	if v == nil {
+		return def
+	}
+	return *v
+}
+
+// Time dereference a pointer string from the structure of a literal or
+// variable, and if the pointer is nil it returns a value of second parameter.
+func Time(v *time.Time, def time.Time) time.Time {
 	if v == nil {
 		return def
 	}

@@ -26,6 +26,7 @@ var _uint16 = uint16(16)
 var _uint32 = uint32(32)
 var _uint64 = uint64(94)
 var _uintptr = uintptr(64)
+var _time = time.Time{}.AddDate(2033, 1, 1)
 
 func ExampleAny() {
 	{
@@ -355,4 +356,20 @@ func ExampleUintptr() {
 	// dereference a nil pointer : (uintptr)	"0"
 	// dereference new zero value: (uintptr)	"0"
 	// dereference variable value: (uintptr)	"64"
+}
+
+func ExampleTime() {
+	value := derefer.Time(nil)
+	Printf("dereference with default value a nil pointer : (%T)\t%q\n", value, Sprint(value))
+
+	value = derefer.Time(new(time.Time))
+	Printf("dereference with default value new zero value: (%T)\t%q\n", value, Sprint(value))
+
+	value = derefer.Time(&_time)
+	Printf("dereference with default value variable value: (%T)\t%q\n", value, Sprint(value))
+
+	// Output:
+	// dereference with default value a nil pointer : (time.Time)	"0001-01-01 00:00:00 +0000 UTC"
+	// dereference with default value new zero value: (time.Time)	"0001-01-01 00:00:00 +0000 UTC"
+	// dereference with default value variable value: (time.Time)	"2034-02-02 00:00:00 +0000 UTC"
 }

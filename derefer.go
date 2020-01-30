@@ -10,6 +10,7 @@ package derefer
 
 import (
 	"reflect"
+	"time"
 )
 
 // Any dereference a pointer any type from the structure of a literal or
@@ -141,6 +142,15 @@ func Rune(v *rune) rune {
 func String(v *string) string {
 	if v == nil {
 		return ""
+	}
+	return *v
+}
+
+// Time dereference a pointer time.Time from the structure of a literal or
+// variable, and if the pointer is nil it returns a zero value of this type.
+func Time(v *time.Time) time.Time {
+	if v == nil {
+		return time.Time{}
 	}
 	return *v
 }

@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"reflect"
 	"testing"
+	"time"
 )
 
 func equal(t testing.TB, expected, actual interface{}) {
@@ -165,4 +166,13 @@ func TestUintptr(t *testing.T) {
 	equal(t, uintptr(0), Uintptr(nil))
 	equal(t, uintptr(0), Uintptr(new(uintptr)))
 	equal(t, uintptr(64), Uintptr(&_uintptr))
+}
+
+func TestTime(t *testing.T) {
+	equal(t, time.Time{}, Time(nil))
+	equal(t, time.Time{}, Time(new(time.Time)))
+	{
+		now := time.Now()
+		equal(t, now, Time(&now))
+	}
 }
